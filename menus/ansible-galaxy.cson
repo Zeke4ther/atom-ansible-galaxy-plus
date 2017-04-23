@@ -1,5 +1,5 @@
 'context-menu':
-  '.tree-view': [
+  '.tree-view .directory .icon-file-directory, .tree-view .directory .icon-repo': [
       type: 'separator'
     ,
       label: 'Ansible: Create role', command: 'ansible-galaxy-plus:init-role'

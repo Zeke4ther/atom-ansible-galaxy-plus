@@ -9,8 +9,7 @@ module.exports =
   activate: (state) ->
     @subscriptions = new CompositeDisposable
 
-    # .tree-view-directory .name, .project-root-header .name
-    @subscriptions.add atom.commands.add '.tree-view', 'ansible-galaxy-plus:init-role', @createRole
+    @subscriptions.add atom.commands.add '.tree-view .directory .icon-file-directory, .tree-view .directory .icon-repo', 'ansible-galaxy-plus:init-role', @createRole
 
   createRole: ({target}) ->
     selectedPath = target.dataset.path
