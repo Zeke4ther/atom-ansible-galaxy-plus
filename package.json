@@ -20,11 +20,6 @@
     "coffeelint": "^1.15.0"
   },
 
-  "a-activationCommands": {
-    "atom-workspace": [
-      "ansible-galaxy-plus:init-role"
-    ]
-  },
   "configSchema": {
     "ansibleGalaxyPath": {
       "title": "Ansible Galaxy Path",
