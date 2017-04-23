@@ -1,7 +1,7 @@
 {
   "name": "ansible-galaxy-plus",
   "main": "./lib/main",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Run Ansible Galaxy commands.",
   "repository": "https://github.com/ldez/atom-ansible-galaxy-plus",
   "license": "MIT",
@@ -19,7 +19,6 @@
   "devDependencies": {
     "coffeelint": "^1.15.0"
   },
-
   "configSchema": {
     "ansibleGalaxyPath": {
       "title": "Ansible Galaxy Path",
@@ -37,7 +36,8 @@
           "description": "Choose the skeleton to use.",
           "type": "string",
           "default": "none",
-          "enum": [{
+          "enum": [
+            {
               "value": "none",
               "description": "No role skeleton"
             },
