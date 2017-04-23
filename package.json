@@ -7,14 +7,15 @@
   "license": "MIT",
   "keywords": [
     "ansible",
-    "ansible-galaxy"
+    "ansible-galaxy",
+    "role skeleton"
   ],
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
     "atom-space-pen-views": "~2.2.0",
-    "fs-plus": "~2.9.3"
+    "fs-plus": "~3.0.0"
   },
   "devDependencies": {
     "coffeelint": "^1.15.0"
