@@ -27,11 +27,57 @@
       "type": "string",
       "default": "/usr/bin/"
     },
-    "roleSkeletonPath": {
-      "title": "Role Skeleton Path",
-      "description": "The path of your custom role skeleton path. (`--role-skeleton=<path>`)",
-      "type": "string",
-      "default": ""
+    "roleSkeleton": {
+      "title": "Role skeleton",
+      "type": "object",
+      "collapsed": false,
+      "properties": {
+        "choice": {
+          "title": "Role Skeleton",
+          "description": "Choose the skeleton to use.",
+          "type": "string",
+          "default": "none",
+          "enum": [{
+              "value": "none",
+              "description": "No role skeleton"
+            },
+            {
+              "value": "skeleton-a",
+              "description": "Path A"
+            },
+            {
+              "value": "skeleton-b",
+              "description": "Path B"
+            },
+            {
+              "value": "skeleton-c",
+              "description": "Path C"
+            }
+          ],
+          "order": 0
+        },
+        "pathA": {
+          "title": "Path A",
+          "description": "The path of a custom role skeleton path. (`--role-skeleton=<path>`)",
+          "type": "string",
+          "default": "",
+          "order": 1
+        },
+        "pathB": {
+          "title": "Path B",
+          "description": "The path of a custom role skeleton path. (`--role-skeleton=<path>`)",
+          "type": "string",
+          "default": "",
+          "order": 2
+        },
+        "pathC": {
+          "title": "Path C",
+          "description": "The path of a custom role skeleton path. (`--role-skeleton=<path>`)",
+          "type": "string",
+          "default": "",
+          "order": 3
+        }
+      }
     }
   }
 }

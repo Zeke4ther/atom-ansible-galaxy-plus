@@ -24,7 +24,7 @@ module.exports =
   makeGalaxyInitRoleMeta: (chosenPath) ->
     cmdArgs = ['init']
 
-    roleSkeletonPath = atom.config.get 'ansible-galaxy.roleSkeletonPath'
+    roleSkeletonPath = @makeRoleSkeletonPath()
     if roleSkeletonPath? and roleSkeletonPath isnt ''
       cmdArgs.push "--role-skeleton=#{roleSkeletonPath}"
 
@@ -38,9 +38,21 @@ module.exports =
       roleName: roleName
       cmdArgs: cmdArgs
 
+  makeRoleSkeletonPath: ->
+    skeletonChoice = atom.config.get 'ansible-galaxy-plus.roleSkeleton.choice'
+
+    if skeletonChoice is 'skeleton-a'
+      atom.config.get 'ansible-galaxy-plus.roleSkeleton.pathA'
+    else if skeletonChoice is 'skeleton-b'
+      atom.config.get 'ansible-galaxy-plus.roleSkeleton.pathB'
+    else if skeletonChoice is 'skeleton-c'
+      atom.config.get 'ansible-galaxy-plus.roleSkeleton.pathC'
+    else
+      ''
+
 executeAnsibleGalaxy = (args) ->
   {spawn} = require 'child_process'
 
-  ansibleGalaxyPath = atom.config.get 'ansible-galaxy.ansibleGalaxyPath'
+  ansibleGalaxyPath = atom.config.get 'ansible-galaxy-plus.ansibleGalaxyPath'
 
   spawn "#{ansibleGalaxyPath}ansible-galaxy", args
