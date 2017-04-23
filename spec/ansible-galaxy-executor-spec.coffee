@@ -48,9 +48,9 @@ describe 'ansible galaxy executor', ->
     ]
 
   it 'should add "role-skeleton" argument with path A when roleSkeleton.choice is set to skeleton-a.', ->
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathA', '/my/role/skeleton/a'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathB', '/my/role/skeleton/b'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathC', '/my/role/skeleton/c'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-a', '/my/role/skeleton/a'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-b', '/my/role/skeleton/b'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-c', '/my/role/skeleton/c'
     atom.config.set 'ansible-galaxy-plus.roleSkeleton.choice', 'skeleton-a'
 
     chosenPath = '/foo/bar/foobar'
@@ -65,9 +65,9 @@ describe 'ansible galaxy executor', ->
     ]
 
   it 'should add "role-skeleton" argument with path B when roleSkeleton.choice is set to skeleton-b.', ->
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathA', '/my/role/skeleton/a'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathB', '/my/role/skeleton/b'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathC', '/my/role/skeleton/c'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-a', '/my/role/skeleton/a'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-b', '/my/role/skeleton/b'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-c', '/my/role/skeleton/c'
     atom.config.set 'ansible-galaxy-plus.roleSkeleton.choice', 'skeleton-b'
 
     chosenPath = '/foo/bar/foobar'
@@ -82,9 +82,9 @@ describe 'ansible galaxy executor', ->
     ]
 
   it 'should add "role-skeleton" argument with path C when roleSkeleton.choice is set to skeleton-c.', ->
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathA', '/my/role/skeleton/a'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathB', '/my/role/skeleton/b'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathC', '/my/role/skeleton/c'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-a', '/my/role/skeleton/a'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-b', '/my/role/skeleton/b'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-c', '/my/role/skeleton/c'
     atom.config.set 'ansible-galaxy-plus.roleSkeleton.choice', 'skeleton-c'
 
     chosenPath = '/foo/bar/foobar'
@@ -99,9 +99,9 @@ describe 'ansible galaxy executor', ->
     ]
 
   it 'should not add "role-skeleton" argument when roleSkeleton.PathX is not defined.', ->
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathA', '/my/role/skeleton/a'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathB', '/my/role/skeleton/b'
-    atom.config.set 'ansible-galaxy-plus.roleSkeleton.pathC', ''
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-a', '/my/role/skeleton/a'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-b', '/my/role/skeleton/b'
+    atom.config.set 'ansible-galaxy-plus.roleSkeleton.skeleton-c', ''
     atom.config.set 'ansible-galaxy-plus.roleSkeleton.choice', 'skeleton-c'
     chosenPath = '/foo/bar/foobar'
 

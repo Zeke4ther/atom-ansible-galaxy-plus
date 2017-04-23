@@ -41,14 +41,11 @@ module.exports =
   makeRoleSkeletonPath: ->
     skeletonChoice = atom.config.get 'ansible-galaxy-plus.roleSkeleton.choice'
 
-    if skeletonChoice is 'skeleton-a'
-      atom.config.get 'ansible-galaxy-plus.roleSkeleton.pathA'
-    else if skeletonChoice is 'skeleton-b'
-      atom.config.get 'ansible-galaxy-plus.roleSkeleton.pathB'
-    else if skeletonChoice is 'skeleton-c'
-      atom.config.get 'ansible-galaxy-plus.roleSkeleton.pathC'
-    else
+    if skeletonChoice is 'none'
       ''
+    else
+      atom.config.get "ansible-galaxy-plus.roleSkeleton.#{skeletonChoice}"
+
 
 executeAnsibleGalaxy = (args) ->
   {spawn} = require 'child_process'

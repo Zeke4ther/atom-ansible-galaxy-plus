@@ -57,21 +57,21 @@
           ],
           "order": 0
         },
-        "pathA": {
+        "skeleton-a": {
           "title": "Path A",
           "description": "The path of a custom role skeleton path. (`--role-skeleton=<path>`)",
           "type": "string",
           "default": "",
           "order": 1
         },
-        "pathB": {
+        "skeleton-b": {
           "title": "Path B",
           "description": "The path of a custom role skeleton path. (`--role-skeleton=<path>`)",
           "type": "string",
           "default": "",
           "order": 2
         },
-        "pathC": {
+        "skeleton-c": {
           "title": "Path C",
           "description": "The path of a custom role skeleton path. (`--role-skeleton=<path>`)",
           "type": "string",
