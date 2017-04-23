@@ -12,13 +12,13 @@ Run Ansible Galaxy commands in Atom.
 ## Support
 
 - create a role.
-- use custom role skeleton.
+- use custom roles skeleton.
 - respect `role_name` variable value.
 
 
 ## Options
 
-![ansible-galaxy-options](https://cloud.githubusercontent.com/assets/5674651/25314423/e8d7219c-2843-11e7-8c2b-13536834ddd9.png)
+![ansible-galaxy-options](https://cloud.githubusercontent.com/assets/5674651/25315198/9eef104a-2851-11e7-8cbe-94377a3bb586.png)
 
 
 ## More
