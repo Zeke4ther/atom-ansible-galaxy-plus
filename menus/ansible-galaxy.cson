@@ -1,0 +1,8 @@
+'context-menu':
+  '.tree-view': [
+      type: 'separator'
+    ,
+      label: 'Ansible: Create role', command: 'ansible-galaxy-plus:init-role'
+    ,
+      type: 'separator'
+  ]

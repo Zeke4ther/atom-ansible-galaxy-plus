@@ -1,0 +1,42 @@
+{
+  "name": "ansible-galaxy-plus",
+  "main": "./lib/main",
+  "version": "0.1.0",
+  "description": "Run Ansible Galaxy commands.",
+  "repository": "https://github.com/ldez/atom-ansible-galaxy-plus",
+  "license": "MIT",
+  "keywords": [
+    "ansible",
+    "ansible-galaxy"
+  ],
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "~2.2.0",
+    "fs-plus": "~2.9.3"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.15.0"
+  },
+
+  "a-activationCommands": {
+    "atom-workspace": [
+      "ansible-galaxy-plus:init-role"
+    ]
+  },
+  "configSchema": {
+    "ansibleGalaxyPath": {
+      "title": "Ansible Galaxy Path",
+      "description": "The path of the executable `ansible-galaxy`. Try `/usr/local/bin/` or `/usr/bin/`.",
+      "type": "string",
+      "default": "/usr/bin/"
+    },
+    "roleSkeletonPath": {
+      "title": "Role Skeleton Path",
+      "description": "The path of your custom role skeleton path. (`--role-skeleton=<path>`)",
+      "type": "string",
+      "default": ""
+    }
+  }
+}
