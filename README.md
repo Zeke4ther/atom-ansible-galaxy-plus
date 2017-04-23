@@ -20,6 +20,10 @@ Run Ansible Galaxy commands in Atom.
 
 ![ansible-galaxy-options](https://cloud.githubusercontent.com/assets/5674651/25315198/9eef104a-2851-11e7-8cbe-94377a3bb586.png)
 
+You can use the Command Palette (<kbd>ctrl-shift-p</kbd> or <kbd>cmd-shift-p</kbd>) to change the selected role skeleton.
+
+![ansible-galaxy-plus-palette](https://cloud.githubusercontent.com/assets/5674651/25315483/be384a4e-2855-11e7-8e93-71fc8c4f5928.png)
+
 
 ## More
 
