@@ -9,22 +9,36 @@ module.exports =
     cmd = executeAnsibleGalaxy meta.cmdArgs
 
     cmd.stdout.on 'data', (data) ->
-      atom.notifications.addInfo 'Create role:', detail: data.toString() or '', dismissable: true
+      atom.notifications.addInfo 'Create role:', detail: data.toString() or '', dismissable: false
 
     cmd.stderr.on 'data', (data) ->
-      console.error "stderr: #{data}"
+      console.error data.toString()
       atom.notifications.addError 'Error:', detail: data.toString() or '', dismissable: true
 
-    cmd.on 'close', (code) ->
+    cmd.on 'close', (code) =>
+      description = @makeDescriptionMessage meta
+
       if code is 0
-        atom.notifications.addSuccess 'Role created!', detail: meta.roleName or '', dismissable: false
+        atom.notifications.addSuccess 'Role created!', description: description, dismissable: true
       else
-        atom.notifications.addWarning 'Role created with errors.', detail: meta.roleName or '', dismissable: false
+        atom.notifications.addWarning 'Role created with errors.', description: description, dismissable: true
+
+  makeDescriptionMessage: (meta) ->
+    descriptionLines = [
+      "Role name: **#{meta.roleName}**"
+      ""
+      "- skeleton: _#{meta.skeletonType}_"
+    ]
+    if meta.skeletonType isnt 'none'
+      descriptionLines.push "- `#{meta.skeletonPath}`"
+
+    descriptionLines.join '\n'
 
   makeGalaxyInitRoleMeta: (chosenPath) ->
     cmdArgs = ['init']
 
-    roleSkeletonPath = @makeRoleSkeletonPath()
+    skeletonChoice = atom.config.get 'ansible-galaxy-plus.roleSkeleton.choice'
+    roleSkeletonPath = @makeRoleSkeletonPath skeletonChoice
     if roleSkeletonPath? and roleSkeletonPath isnt ''
       cmdArgs.push "--role-skeleton=#{roleSkeletonPath}"
 
@@ -37,11 +51,11 @@ module.exports =
     meta =
       roleName: roleName
       cmdArgs: cmdArgs
+      skeletonType: skeletonChoice
+      skeletonPath: roleSkeletonPath
 
-  makeRoleSkeletonPath: ->
-    skeletonChoice = atom.config.get 'ansible-galaxy-plus.roleSkeleton.choice'
-
-    if skeletonChoice is 'none'
+  makeRoleSkeletonPath: (skeletonChoice) ->
+    if skeletonChoice is 'none' or skeletonChoice is ''
       ''
     else
       atom.config.get "ansible-galaxy-plus.roleSkeleton.#{skeletonChoice}"

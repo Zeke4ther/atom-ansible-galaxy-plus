@@ -13,6 +13,7 @@ module.exports =
 
     roleSkeletonConfigurationKey = 'ansible-galaxy-plus.roleSkeleton.choice'
     @subscriptions.add atom.commands.add 'atom-workspace',
+      'ansible-galaxy-plus:none': -> atom.config.set roleSkeletonConfigurationKey, 'none'
       'ansible-galaxy-plus:skeleton-a': -> atom.config.set roleSkeletonConfigurationKey, 'skeleton-a'
       'ansible-galaxy-plus:skeleton-b': -> atom.config.set roleSkeletonConfigurationKey, 'skeleton-b'
       'ansible-galaxy-plus:skeleton-c': -> atom.config.set roleSkeletonConfigurationKey, 'skeleton-c'
