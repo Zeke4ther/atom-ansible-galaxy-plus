@@ -1,4 +1,4 @@
-fdescribe 'Ansible Galaxy Plus', ->
+describe 'Ansible Galaxy Plus', ->
   pack = null
 
   beforeEach ->
