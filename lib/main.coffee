@@ -4,6 +4,7 @@ CreateRoleView = require './create-role-view'
 
 module.exports =
 
+  roleSkeletonConfigurationKey: 'ansible-galaxy-plus.roleSkeleton.choice'
   subscriptions: null
 
   activate: (state) ->
@@ -11,12 +12,11 @@ module.exports =
 
     @subscriptions.add atom.commands.add '.tree-view .directory .icon-file-directory, .tree-view .directory .icon-repo', 'ansible-galaxy-plus:init-role', @createRole
 
-    roleSkeletonConfigurationKey = 'ansible-galaxy-plus.roleSkeleton.choice'
     @subscriptions.add atom.commands.add 'atom-workspace',
-      'ansible-galaxy-plus:skeleton-none': -> atom.config.set roleSkeletonConfigurationKey, 'none'
-      'ansible-galaxy-plus:skeleton-a': -> atom.config.set roleSkeletonConfigurationKey, 'skeleton-a'
-      'ansible-galaxy-plus:skeleton-b': -> atom.config.set roleSkeletonConfigurationKey, 'skeleton-b'
-      'ansible-galaxy-plus:skeleton-c': -> atom.config.set roleSkeletonConfigurationKey, 'skeleton-c'
+      'ansible-galaxy-plus:skeleton-none': => @changeSkeletonPath 'none'
+      'ansible-galaxy-plus:skeleton-a': => @changeSkeletonPath 'skeleton-a'
+      'ansible-galaxy-plus:skeleton-b': => @changeSkeletonPath 'skeleton-b'
+      'ansible-galaxy-plus:skeleton-c': => @changeSkeletonPath 'skeleton-c'
 
   createRole: ({target}) ->
     selectedPath = target.dataset.path
@@ -27,6 +27,11 @@ module.exports =
 
     dialog.onDidConfirm (custom) ->
       ansibleGalaxyExecutor.executeInitRole custom.rolePath
+
+  changeSkeletonPath: (next) ->
+    previous = atom.config.get @roleSkeletonConfigurationKey
+    atom.config.set @roleSkeletonConfigurationKey, next
+    atom.notifications.addInfo 'Ansible Galaxy Skeleton', detail: "Change from #{previous} to #{next}.", dismissable: false
 
   deactivate: ->
     @subscriptions?.dispose()
