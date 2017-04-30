@@ -40,7 +40,7 @@ class CreateRoleView extends DialogView
     pathInfo = relativeDirectoryPath: goalPath
 
     for projectPath in atom.project.getPaths()
-      if goalPath is projectPath or goalPath is projectPath + path.sep
+      if goalPath is projectPath or goalPath.indexOf(projectPath + path.sep) is 0
         pathInfo =
           rootProjectPath: projectPath
           relativeDirectoryPath: path.relative(projectPath, goalPath)
