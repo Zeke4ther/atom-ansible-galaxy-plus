@@ -23,9 +23,9 @@
   "configSchema": {
     "ansibleGalaxyPath": {
       "title": "Ansible Galaxy Path",
-      "description": "The path of the executable `ansible-galaxy`. Try `/usr/local/bin/` or `/usr/bin/`.",
+      "description": "The path of the executable `ansible-galaxy` (e.g. `/usr/bin/` or `/usr/local/bin/`) if not in shell env path.",
       "type": "string",
-      "default": "/usr/bin/"
+      "default": ""
     },
     "roleSkeleton": {
       "title": "Role skeleton",
