@@ -7,7 +7,7 @@ menu: [
     ,
       label: 'Role skeleton path B', command: 'ansible-galaxy-plus:skeleton-b'
     ,
-      label: 'Role skeleton path B', command: 'ansible-galaxy-plus:skeleton-c'
+      label: 'Role skeleton path C', command: 'ansible-galaxy-plus:skeleton-c'
     ]
   ]
 ]
